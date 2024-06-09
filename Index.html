@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Jockey One' rel='stylesheet'>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TECHTREASURE</title>
+        <!--SCRIPT-->
+        <script>
+            let scrollToggle = false;
+            function scrollDown() {
+                if (scrollToggle) {
+                    document.getElementById('content2').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    document.getElementById('content1').scrollIntoView({ behavior: 'smooth' });
+                }
+                scrollToggle = !scrollToggle;
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+
+                const target = document.querySelector('.Footer img');
+                observer.observe(target);
+            });
+
+            function showModal() {
+                document.getElementById('myModal').style.display = 'flex';
+            }
+
+            function hideModal() {
+                document.getElementById('myModal').style.display = 'none';
+            }
+
+            function thankYou() {
+                alert('Thank You!');
+                hideModal();
+            }
+
+            function tryAnother() {
+                alert('Try another device?');
+                hideModal();
+            }
+
+            function showAboutModal() {
+                document.getElementById('aboutModal').style.display = 'flex';
+            }
+
+            function hideAboutModal() {
+                document.getElementById('aboutModal').style.display = 'none';
+            }
+        </script>
+
+        <!--STYLE-->
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            .About {
+                margin-top: 20px;
+                margin-left: 30px;
+                position: fixed;
+                font-size: 14px;
+                font-weight: bold;
+                background-color: #333;
+                padding: 10px;
+                border-radius: 5px;
+                z-index: 99;
+            }
+
+            .About a {
+                color: white;
+                text-decoration: none;
+            }
+
+            .About a:hover {
+                text-decoration: underline;
+            }
+
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.4);
+                justify-content: center;
+                align-items: center;
+            }
+
+            .modal-content {
+                background-color: white;
+                padding: 20px;
+                border-radius: 5px;
+                text-align: center;
+            }
+
+            .close-button {
+                padding: 10px 20px;
+                background-color: #ff6600;
+                color: white;
+                border: none;
+                cursor: pointer;
+                margin-top: 20px;
+            }
+
+            .close-button:hover {
+                background-color: #ff4500;
+            }
+
+            .header {
+                position: fixed;
+                width: 100%;
+                margin-top: 50px;
+                background-color: #2b2b2b;
+                padding: 2px 2px;
+                text-align: center;
+                z-index: 99;
+            }
+
+            .header nav a {
+                margin: 0 5px;
+                margin-left: 70px;
+                text-decoration: none;
+                color: #ffffff;
+                font-weight: bold;
+                position: relative;
+            }
+
+            .header nav a:hover {
+                color: #7eeffd;
+            }
+
+            .image-right {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .Image {
+                background-image: url("TECHLOGO.jpg");
+                position: absolute;
+                top: 120px;
+                left: 10px;
+                width: 280px;
+                height: 280px;
+                overflow: hidden;
+                border-radius: 50%;
+                background-color: #333;             
+            }
+
+            .text {
+                position: absolute;
+                font-size: 30px;
+                margin-left: 320px;
+                margin-top: 250px;
+                transform: translateY(-50%);
+            }
+
+            .search {
+                position: fixed;
+                margin-top: 120px;
+                margin-left: 1200px;
+                display: flex;
+                align-items: center;
+            }
+
+            #search-bar {
+                padding: 5px;
+                margin-right: 10px;
+            }
+
+            button {
+                padding: 5px 10px;
+                cursor: pointer;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            .row {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .column {
+                background-image: url("asus-rog-zephyrus-g14-2024-review-the-gaming-multimedia-v0-glerXpKglUiSP8v4ot3uS7UuhhL-kzw3v6Qoj3eOlh0.webp");
+                margin-top: 500px;
+                float: left;
+                width: 700px;
+                margin-left: 60px;
+                padding: 10px;
+                height: 300px;
+                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+
+            .column:hover {
+                transform: translateY(-10px);
+            }
+
+            .column:nth-child(2) {
+                margin-left: 10px;
+            }
+
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .buy-now-button {
+                background-color: #fb5570;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                margin-left: 480px;
+                cursor: pointer;
+                border-radius: 10px;
+            }
+
+            .buy-now-button:hover {
+                background-color: #83febd;
+            }
+
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.4);
+                justify-content: center;
+                align-items: center;
+            }
+
+            .modal-content {
+                background-color: white;
+                padding: 40px;
+                border-radius: 10px;
+                text-align: center;
+            }
+
+            .modal-buttons {
+                display: flex;
+                justify-content: space-around;
+                margin-top: 20px;
+            }
+
+            .modal-button {
+                padding: 10px 20px;
+                background-color: #ff6600;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+
+            .modal-button:hover {
+                background-color: #ff4500;
+            }
+        </style>
+
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+            }
+
+            #scroll-btn {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: #333;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+
+            #scroll-btn::after {
+                content: "\25BC";
+                margin-left: 5px;
+            }
+
+            #content1 {
+                margin-top: 130px;
+                height: 1000px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 24px;
+            }
+
+            #content2 {
+                margin-top: 10px;
+                height: 1900px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 24px;
+            }
+
+            #line {
+                position: absolute;
+                top: 1100px;
+                left: 250px;
+                width: 70%;
+                border-top: 2px solid black;
+            }
+
+            #line2 {
+                position: absolute;
+                top: 2100px;
+                left: 250px;
+                width: 70%;
+                border-top: 2px solid black;
+            }
+
+            .images-container {
+                display: flex;
+            }
+
+            .image1,
+            .image2,
+            .image3 {
+                margin-right: 200px;
+            }
+
+            .image4,
+            .image5,
+            .image6 {
+                margin-right: 190px;
+            }
+
+            .featured {
+                position: absolute;
+                top: -30px;
+            }
+
+            .Footer {
+                margin-bottom: 200px;
+                margin-top: -700px;
+            }
+
+            .right {
+                padding-left: 20px;
+            }
+
+            .image-button {
+                border: none;
+                background: none;
+                padding: 0;
+                cursor: pointer;
+            }
+
+            .image-button img {
+                display: block;
+                width: 40px;
+                height: auto;
+            }
+
+            #wrap {
+                margin: 50px 100px;
+                display: inline-block;
+                position: relative;
+                height: 60px;
+                padding: 0;
+                position: relative;
+            }
+
+            body {
+                background: #ffffff;
+                font-size: 15px;
+            }
+
+            #wrap {
+                margin: 40px 90px;
+                display: inline-block;
+                position: relative;
+                height: 50px;
+                padding: 0;
+                position: relative;
+            }
+
+            input[type="text"] {
+                height: 30px;
+                font-size: 25px;
+                display: inline-block;
+                font-family: "Lato";
+                font-weight: 80;
+                border: none;
+                outline: none;
+                color: #555;
+                padding: 3px;
+                padding-right: 40px;
+                width: 0px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: none;
+                z-index: 3;
+                transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+                cursor: pointer;
+            }
+
+            input[type="text"]:focus:hover {
+                border-bottom: 1px solid #ffffff;
+            }
+
+            input[type="text"]:focus {
+                width: 400px;
+                z-index: 1;
+                border-bottom: 1px solid #ffffff;
+                cursor: text;
+            }
+
+            input[type="submit"] {
+                height: 47px;
+                width: 43px;
+                display: inline-block;
+                color: red;
+                background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADNQTFRFU1NT9fX1lJSUXl5e1dXVfn5+c3Nz6urqv7+/tLS0iYmJqampn5+fysrK39/faWlp////Vi4ZywAAABF0Uk5T/////////////////////wAlrZliAAABLklEQVR42rSWWRbDIAhFHeOUtN3/ags1zaA4cHrKZ8JFRHwoXkwTvwGP1Qo0bYObAPwiLmbNAHBWFBZlD9j0JxflDViIObNHG/Do8PRHTJk0TezAhv7qloK0JJEBh+F8+U/hopIELOWfiZUCDOZD1RADOQKA75oq4cvVkcT+OdHnqqpQCITWAjnWVgGQUWz12lJuGwGoaWgBKzRVBcCypgUkOAoWgBX/L0CmxN40u6xwcIJ1cOzWYDffp3axsQOyvdkXiH9FKRFwPRHYZUaXMgPLeiW7QhbDRciyLXJaKheCuLbiVoqx1DVRyH26yb0hsuoOFEPsoz+BVE0MRlZNjGZcRQyHYkmMp2hBTIzdkzCTc/pLqOnBrk7/yZdAOq/q5NPBH1f7x7fGP4C3AAMAQrhzX9zhcGsAAAAASUVORK5CYII=) center center no-repeat;
+                text-indent: -10000px;
+                border: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 2;
+                cursor: pointer;
+                opacity: 0.4;
+                cursor: pointer;
+                transition: opacity .4s ease;
+            }
+
+            input[type="submit"]:hover {
+                opacity: 0.8;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .animate {
+                opacity: 0;
+                transition: opacity 0.5s, transform 0.5s;
+            }
+
+            .animate.visible {
+                animation: fadeIn 1s forwards;
+            }
+        </style>
+
+    </head>
+
+<body>
+    <!-- HEADER -->
+    <header class="About">
+        <a id="AboutUs" href="javascript:void(0)" onclick="showAboutModal()">About TechTreasure</a>
+    </header>
+
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <h3>ABOUT US</h3>
+            <p>At Tech Treasure Store, our mission is to provide our customers with top-quality technology products that enhance their lives. We believe in the power of technology to transform the way we live, work, and play, and we strive to offer products that personify this transformative power. </p>
+            <button class="close-button" onclick="hideAboutModal()">Close</button>
+        </div>
+    </div>
+
+    <header class="header">
+        <nav>
+            <a href="#feedbacks-&-suggestions">Feedbacks & Suggestions</a>
+            <a href="#ContactUs">FAQs</a>
+            <a href="#Policies">Policies</a>
+            <a href="https://www.facebook.com/japhet.delmundo.3/" target="_blank">
+                <img src="image.img/facebook-logo-facebook-icon-transparent-free-png.webp" width="35" height="35"
+                    alt="Facebook">
+                <span>Facebook</span>
+            </a>
+            <a href="https://www.instagram.com/shiraoriii/" target="_blank">
+                <img src="image.img/Call-manager.png" width="35" height="35" alt="Contacts">
+                <span>Contacts</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search">
+        <div id="wrap">
+            <form action="" autocomplete="on">
+                <input id="search" name="search" type="text" placeholder="What're we looking for ?"><input
+                    id="search_submit" value="Search" type="submit">
+            </form>
+        </div>
+    </div>
+
+    <!---Body-->
+    <div class="Image">
+        <img src="image.img/TECHLOGO.jpg" alt="TECH" width="280" height="280" class="image-right">
+    </div>
+    <div class="text">
+        <h1 style="font-family: 'Jockey One', sans-serif;">TECH <br><span style="color: #51ADA8;">TREASURE</span></h1>
+    </div>
+
+    <!---Column-->
+    <div class="row">
+        <div class="column" style="background-color:hwb(0 32% 68%);">
+            <h1 style="font-family: Bell MT; color: white;">ROG Zephyrus G16 (2024)</h1>
+            <p style="color: white">16" ROG Nebula Pantone Validated 240Hz OLED WQXGA (100% DCI-P3)<br>
+                Intel Core Ultra 9 185H<br>
+                NVIDIA GeForce RTX 4080 12GB GDDR6<br>
+                32GB LPDDR5X 7467<br>
+                1TB NVMe PCIe SSD<br>
+                Windows 11 Professional<br>
+                Backlit Chiclet Single-Zone RGB Keyboard and Pitch Black
+            </p>
+            <button class="buy-now-button" onclick="showModal()">Buy Now</button>
+        </div>
+        <div class="column" style="background-color:hwb(0 32% 68%);">
+            <img src="image.img/asus-rog-zephyrus-g14-2024-review-the-gaming-multimedia-v0-glerXpKglUiSP8v4ot3uS7UuhhL-kzw3v6Qoj3eOlh0.webp"
+                alt="Image description" width="700px" height="280">
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure? that will cost <br>$3,247</p>
+            <div class="modal-buttons">
+                <button class="modal-button" onclick="thankYou()">Yes</button>
+                <button class="modal-button" onclick="tryAnother()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!--SCOLL-->
+    <button id="scroll-btn" onclick="scrollDown()"> →</button>
+
+    <!--Products-->
+    <div id="content1">
+        <div id="line">
+            <span class="featured">Featured Deals</span>
+            <div class="images-container">
+                <div class="image1">
+                    <img src="image.img/HP-Victus-15-FB1013DX.jpg" width="250" height="250">
+                    <h5>HP-Victus-15-FB1013DX.</h5>
+                    <p style="font-size:14px">Keep up with the biggest games and the best performance.</p>
+                    <ul>
+                        <li style="font-size:14px">AMD Ryzen™ 5 7535HS Processor<br>
+                            16GB Ram DDR5, 512GB SSD NVMe<br>
+                            NVIDIA® GeForce RTX™ 2050 4GB GDDR6 Graphics<br>
+                            15.6" FHD IPS 144Hz, Backlit KB, Windows 11</li>
+                    </ul>
+                    <h4>$2394</h4>
+                    <button type="button">Buy now</button>
+                    <span><button type="button" style="background-color: rgb(116, 210, 113);">Add to
+                            cart</button></span>
+                </div>
+                <div class="image2">
+                    <img src="image.img/HP-Pavilion-15-EH3050AU-AMD-Ryzen-7-7730U.jpg" width="250" height="250">
+                    <h5>HP-Pavilion-15-EH3050AU-AMD.</h5>
+                    <p style="font-size:14px">Incredible performance in a smaller PC.</p>
+                    <ul>
+                        <li style="font-size:14px">AMD Ryzen™ 7 7730U<br>
+                            16GB Ram DDR4, <br>1TB SSD NVMe<br>
+                            Integrated, AMD Radeon™ Graphics<br>
+                            15.6" FHD IPS, Backlit KB, Windows 11<br>
+                            144hz, Silver White</li>
+                    </ul>
+                    <h4>$2924</h4>
+                    <button type="button">Buy now</button>
+                    <span><button type="button" style="background-color: rgb(116, 210, 113);">Add to
+                            cart</button></span>
+                </div>
+                <div class="image3">
+                    <img src="image.img/AcerNitro.jpg" width="250" height="250">
+                    <h5>Acer Nitro 5 AN515-58-54XN</h4>
+                        <p style="font-size:14px">Conquer games and tasks.</p>
+                        <ul>
+                            <li style="font-size:14px">Intel® Core i5-12500H 12th Generation,<br>
+                                16GB Ram DDR4, 512GB SSD NVMe<br>
+                                NVIDIA® GeForce RTX 3050 4GB GDDR6<br>
+                                15.6" FHD IPS 144Hz, Windows 11 Home</li>
+                        </ul>
+                        <h4>$2524</h4>
+                        <button type="button">Buy now</button>
+                        <span><button type="button" style="background-color: rgb(116, 210, 113);">Add to
+                                cart</button></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content2">
+        <div id="line2">
+            <span class="featured">New Arrivals</span>
+            <div class="images-container">
+                <div class="image4">
+                    <img src="image.img/Dell.jpg" width="250" height="250">
+                    <h5>Dell Inspiron 14 7430</h4>
+                        <p style="font-size:14px">Work, watch and listen as you explore.</p>
+                        <ul>
+                            <li style="font-size:14px">Intel® Core™ i7-1355U 13th Generation.<br>
+                                16GB Ram DDR5 (onboard), 1TB SSD NVM.<br>
+                                Intel® Iris® Xe Graphics, Backlit KB.<br>
+                                14" FHD+Touch Screen, Windows 11.</li>
+                        </ul>
+                        <h4>$2524</h4>
+                        <button type="button">Buy now</button>
+                        <span><button type="button" style="background-color: rgb(116, 210, 113);">Add to
+                                cart</button></span>
+                </div>
+                <div class="image5">
+                    <img src="image.img/ASUSVIVO.png" width="250" height="250">
+                    <h5>ASUS Vivobook 16 X1605</h4>
+                        <p style="font-size:14px">Always ready for action, preloaded with Windows.</p>
+                        <ul>
+                            <li style="font-size:14px">Intel Core i7-13700H 13th Generation<br>
+                                8GB RAM DDR 512GB SSD NVMe<br>
+                                Intel Iris Xe Graphics 16'' wuxga<br>
+                                Indie Black Windows 11 Home</li>
+                        </ul>
+                        <h4>$2524</h4>
+                        <button type="button">Buy now</button>
+                        <span><button type="button" style="background-color: rgb(116, 210, 113);">Add to
+                                cart</button></span>
+                </div>
+                <div class="image5">
+                    <img src="image.img/LENOVO2.webp" width="250" height="250">
+                    <h5>Lenovo ThinkPad E16</h4>
+                        <p style="font-size:14px">Dependable & durable, just like your business</p>
+                        <ul>
+                            <li style="font-size:14px">Intel® Core™ i7-13700H Processor (24M Cache, up to 5.00 GHz)<br>
+                                16GB Soldered DDR4-3200, 512GB SSD M.2 2242 PCIe® 4.0x4 NVMe® Opal 2.0<br>
+                                16" WUXGA (1920x1200) IPS 300nits, Backlit KB, Fingerprint Reader<br>
+                                Integrated Intel® Iris® Xe Graphics Functions as UHD Graphics</li>
+                        </ul>
+                        <h4>$2324</h4>
+                        <button type="button">Buy now</button>
+                        <span><button type="button" style="background-color: rgb(116, 210, 113);">Add to
+                                cart</button></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="Footer">
+        <img src="image.img/GOTkeywidecrop.jpg" style="height: 700px; width: 2200px;" class="animate">
+        <span class="right"><strong>Fill up a request form</strong></span>
+        <button class="image-button" onclick="window.location.href='//www.facebook.com/japhet.delmundo.3';">
+            <img src="image.img/DocumentLogo.jpg" height="10px" width="10px">
+        </button>
+    </div>
+    <footer>
+        &copy; 2024 Delmundo Japhet. All rights reserved.
+    </footer>
+</body>
+
+</html>
